@@ -1,0 +1,23 @@
+<html>
+  <head>
+	  <title><%= yield :title -%></title>
+	  <%= stylesheet_tag 'application', {} %>
+	</head>
+	<body>
+	  <div id='header_menu'>
+	     <%= link_to( _('Home'), root_path ) -%> |
+   	   <%= link_to( _('Users'), users_path ) -%> |
+   	   <%= link_to( _('Login'), login_path ) -%> 
+	  </div>
+	   <!-- FLASHES -->       
+     <div class='flashes'>
+       <%- flash.each do |fls| -%>
+         <%- if not fls[1].nil? -%>
+           <%= tag :div, :id => "flash_#{fls[0]}" %><%= fls[1] -%></div>
+         <%- end -%>
+       <%- end -%>
+     </div>
+     
+		<div id='yield'><%= yield %></div>
+	</body>
+</html>

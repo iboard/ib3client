@@ -1,0 +1,14 @@
+<%= title _('Remote User List') -%>
+
+<table width=100% cellspacing=0 cellpadding=0>
+	<tr>
+	  <th><%= _('username') -%></th>
+		<th><%= _('Name/Mail') -%></th>
+		<th><%= _('keywords') -%>, <%= _('disabled') -%>, <%= _('disable_note') -%></th>
+		<th><%= _('reg_key') -%></th>
+		<th><%= _('reg_sent') -%></th>
+		<th><%= _('reg_confirmed') -%></th>
+		<th><%= _('reg_from_ip') -%></th>
+	</tr>
+  <%= render :partial => @users %>
+</table>

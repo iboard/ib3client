@@ -1,0 +1,67 @@
+body {
+	margin: 0px;
+	padding: 0px;
+}
+
+#yield {
+	width: 900px;
+	margin-left: auto;
+	margin-right: auto;
+	font-family: Verdana;
+	font-size: small;
+	overflow: auto-scroll;
+}
+
+#header_menu {
+	width: 900px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 10px;
+	font-family: Verdana;
+	font-size: small;
+	overflow: auto-scroll;
+}
+
+.flashes {
+	width: 900px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 10px;
+	font-family: Verdana;
+	font-size: small;
+	overflow: auto-scroll;	
+}
+
+#flash_notice {
+	border: solid 1px #008040;
+	padding: 10px;
+	color: #008040;
+}
+
+#flash_error {
+	border: solid 1px red;
+	padding: 10px;
+	color: red;
+}
+
+table {
+	font-size: x-small;
+	border: 2px solid black;
+	margin: 0px;
+	padding: 0px;
+	background: #ddd;
+}
+
+td {
+	vertical-align: top;
+	border: 1px solid #888;
+	margin: 0px;
+	padding: 3px;
+	background: white;
+}
+
+th {
+    border: 1px solid #888;
+    vertical-align: bottom;
+	padding: 5px;
+}

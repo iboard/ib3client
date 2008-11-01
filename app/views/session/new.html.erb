@@ -1,0 +1,17 @@
+<%= title _('Log in') -%>
+<% form_tag 'session/verify_login' do %>
+<div class='ib3form'>
+  <%= tag :div, :class => 'form_field' %>
+    <div class='form_field_label'><%= _('Username') -%>:</div>
+    <div class='form_field_value'><%= text_field_tag :username, "", :size => 32 %></div>
+  </div>
+  <%= tag :div, :class => 'form_field' %>
+    <div class='form_field_label'><%= _('Password') -%>:</div>
+    <div class='form_field_value'><%= password_field_tag :password, "", :size => 32 %></div>
+  </div>
+  <%= tag :div, :class => 'form_field' %>
+    <div class='form_field_label'>&nbsp;</div>
+    <div class='form_field_value'><%= submit_tag _('Log in') -%></div>
+  </div>
+</div>
+<% end %>

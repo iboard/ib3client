@@ -4,11 +4,8 @@
 	  <%= stylesheet_tag 'application', {} %>
 	</head>
 	<body>
-	  <div id='header_menu'>
-	     <%= link_to( _('Home'), root_path ) -%> |
-   	   <%= link_to( _('Users'), users_path ) -%> |
-   	   <%= link_to( _('Login'), login_path ) -%> 
-	  </div>
+	   <div id='banner'>&nbsp;</div>
+	   <%= render :partial => 'layouts/header_menu' %>
 	   <!-- FLASHES -->       
      <div class='flashes'>
        <%- flash.each do |fls| -%>

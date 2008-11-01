@@ -3,8 +3,17 @@ body {
 	padding: 0px;
 }
 
+#banner {
+	width: 800px;
+	height: 100px;
+	background: #CCC;
+	background-image: url('/images/ib3header.jpg');
+	margin-left: auto;
+	margin-right: auto;
+}
+
 #yield {
-	width: 900px;
+	width: 800px;
 	margin-left: auto;
 	margin-right: auto;
 	font-family: Verdana;
@@ -13,7 +22,7 @@ body {
 }
 
 #header_menu {
-	width: 900px;
+	width: 800px;
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 10px;
@@ -23,7 +32,7 @@ body {
 }
 
 .flashes {
-	width: 900px;
+	width: 800px;
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 10px;

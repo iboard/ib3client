@@ -1,5 +1,5 @@
 <%= title _('Remote User List') -%>
-
+<p><em>Server: <%= User.site.to_s.gsub(/\/\/.*@/,'//****@') %></em></p>
 <table width=100% cellspacing=0 cellpadding=0>
 	<tr>
 	  <th><%= _('username') -%></th>
@@ -10,5 +10,7 @@
 		<th><%= _('reg_confirmed') -%></th>
 		<th><%= _('reg_from_ip') -%></th>
 	</tr>
+	
   <%= render :partial => @users %>
+
 </table>

@@ -16,16 +16,35 @@ class SessionController < ApplicationController
   def verify_login
     username = params[:username]
     password = params[:password]
-    if username && !username.blank? && !password.blank? && authenticate_user(username,password)
-      flash[:notice] = _('Successfully logged in')
-      session[:user_id] = username
-      session[:ip]      = request.env['REMOTE_ADDR']
-      redirect_to session[:initial_uri] || root_path
+    #if username && !username.blank? && !password.blank? && authenticate_user(username,password)
+    #  flash[:notice] = _('Successfully logged in')
+    #  session[:user_id] = username
+    #  session[:ip]      = request.env['REMOTE_ADDR']
+    #  redirect_to session[:initial_uri] || root_path
+    #  return false
+    #else
+    #  flash[:error] ||= _('Login failed. Please try again.')
+    #end
+    #redirect_to login_path
+    begin
+      @user = User.get( :remote_authenticate, :id => "#{username}:#{password}" )
+      if @user
+        flash[:notice] = _('Logged in successfully')
+        session[:user_id] = username
+        session[:ip]      = request.env['REMOTE_ADDR']
+        redirect_to session[:initial_uri] || root_path
+        return false
+      end
+    rescue Exception => e
+      flash[:error] =  "#{e}"
+      @user = nil
+      redirect_to login_path
       return false
-    else
-      flash[:error] ||= _('Login failed. Please try again.')
     end
+        
+    flash[:notice] = _('Log in failed')
     redirect_to login_path
+    return false
   end
   
   private

@@ -1,7 +1,8 @@
 class SessionController < ApplicationController
   def new
     if logged_in?
-      render :text => _('You are logged in!' ) + " (<a href=#{logout_path}>#{_('logout')}</a>)", :layout => 'application'
+      render :text => (_('You are logged in as <em>%s</em>!' ) % session[:user_id]) + 
+                      " (<a href=#{logout_path}>#{_('logout')}</a>)", :layout => 'application'
     else
       render :layout => 'application'
     end

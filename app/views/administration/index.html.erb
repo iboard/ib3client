@@ -1,15 +1,16 @@
 <% title _('ispBoard - Administration for user %s') % session[:user_id] %>
 
-<% page_block do %>
-  <h2><%= toggle_div_tag(_('Subaccounts/Reseller'),'reseller_table') -%></h2>
-  <div id='reseller_table' style='display: none;'>
-    <%= render :partial => 'administrators/administrators' -%>
-  </div>
-<% end %>
 
 <% page_block do %>
   <h2><%= toggle_div_tag(_('Servers'),'server_table') -%></h2>
   <div id='server_table' style='display: none;'>
      render :partial => 'administrators/servers' 
+  </div>
+<% end %>
+
+<% page_block do %>
+  <h2><%= toggle_div_tag(_('Subaccounts/Reseller'),'reseller_table') -%></h2>
+  <div id='reseller_table' style='display: none;'>
+    <%= render :partial => 'administrators/administrators' -%>
   </div>
 <% end %>

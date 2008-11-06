@@ -1,7 +1,10 @@
 class SessionController < ApplicationController
+  
   def new
     if logged_in?
-      render :text => _('You are logged in!' ) + " (<a href=#{logout_path}>#{_('logout')}</a>)", :layout => 'application'
+      render :text => (_('You are logged in as <em>%s</em>!' ) % session[:user_id]) + 
+             " (<a href=#{logout_path}>#{_('logout')}</a>)", 
+             :layout => 'application'
     else
       render :layout => 'application'
     end
@@ -20,7 +23,7 @@ class SessionController < ApplicationController
     begin
       @user = User.get( :remote_authenticate, :id => "#{username}:#{password}" )
       if @user
-        flash[:notice] = _('Logged in successfully')
+        flash[:notice] = _('Logged in successfully as <em>%s</em>') % @user['username']
         session[:user_id] = username
         session[:ip]      = request.env['REMOTE_ADDR']
         redirect_to session[:initial_uri] || root_path

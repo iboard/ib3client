@@ -1,5 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
 
+  map.administration "/administration", :controller => :administration, :action => :index
+  map.resources :administrators
+
   map.resources :users
 
   map.connect ':controller/:action/:id'

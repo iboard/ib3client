@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  username: MyString
+  max_clients: 1
+  description: MyText
+  billing_address: MyText
+
+two:
+  username: MyString
+  max_clients: 1
+  description: MyText
+  billing_address: MyText

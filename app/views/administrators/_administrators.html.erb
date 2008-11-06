@@ -1,0 +1,22 @@
+<p></p>
+<table>
+  <tr>
+    <th>Username</th>
+    <th>Clients/max clients</th>
+    <th>Description</th>
+    <th>Billing address</th>
+    <th colspan=2>&nbsp;</th>
+  </tr>
+
+<% for administrator in @administrators %>
+  <tr>
+    <td><%= link_to h(administrator.username), administrator %></td>
+    <td><%= link_to administrator.children.length, administrator %> / <%=h administrator.max_clients %></td>
+    <td><%=h administrator.description %></td>
+    <td><%=h administrator.billing_address %></td>
+    <td><%= link_to 'Edit', edit_administrator_path(administrator) %></td>
+    <td><%= link_to 'Destroy', administrator, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+
+</table>

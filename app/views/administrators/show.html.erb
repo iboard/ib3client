@@ -1,0 +1,34 @@
+<% title(_('Administrator: %s') % h(@administrator.username)) -%>
+<p>
+  <%=h @administrator.description %>
+</p>
+
+<div class='billing_address_box'>
+  <p><b>Billing address:</b><br />
+     <%=h @administrator.billing_address %>
+  </p>
+</div>
+
+<p>
+  <b>Max (sub)clients:</b> <%=h @administrator.max_clients %>
+</p>
+
+<% if @administrator.parent  %>
+  <p><b>Parent Account:</b> <%= link_to(@administrator.parent.username,@administrator.parent) -%></p>
+<% end %>
+
+<p>
+  <% @administrators = @administrator.children %>
+  <%= render :partial => 'administrators' -%>
+</p>
+
+<p>
+  <%= link_to(_('New subaccount'), new_administrator_path(:parent_id => @administrator)) -%>
+</p>
+
+
+<%- navigation( 
+     link_to( 'Edit', edit_administrator_path(@administrator)) + " | " +
+     link_to( 'Toplevel-administrators', administrators_path)
+   )
+-%>

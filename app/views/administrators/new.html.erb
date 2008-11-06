@@ -1,0 +1,10 @@
+<% title _('New administrator') %>
+<% navigation(link_to( 'Toplevel-administrators', administrators_path)) + " | " %>
+
+<% form_for(@administrator) do |f| %>
+  <%= f.error_messages %>
+
+  <%= render :partial => 'fields', :locals => { :f => f } %>
+
+<% end %>
+

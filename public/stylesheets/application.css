@@ -1,3 +1,7 @@
+* {
+	font-family: Verdana;
+}
+
 body {
 	margin: 0px;
 	padding: 0px;
@@ -31,12 +35,18 @@ body {
 	overflow: auto-scroll;
 }
 
+#navigation-bar {
+	width: 800px;
+	margin: auto;
+	font-size: small;
+	overflow: auto-scroll;
+}
+
 .flashes {
 	width: 800px;
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 10px;
-	font-family: Verdana;
 	font-size: small;
 	overflow: auto-scroll;	
 }
@@ -55,7 +65,8 @@ body {
 
 table {
 	font-size: x-small;
-	border: 2px solid black;
+	border: none;
+	width: 100%;
 	margin: 0px;
 	padding: 0px;
 	background: #ddd;
@@ -73,4 +84,14 @@ th {
     border: 1px solid #888;
     vertical-align: bottom;
 	padding: 5px;
+}
+
+.page_block {
+	border: 1px solid #444;
+	margin: 0px;
+	margin-bottom: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 20px;
+	padding-right: 20px;
 }

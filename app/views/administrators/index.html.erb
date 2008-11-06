@@ -1,0 +1,11 @@
+<% title _('Top-level administrators') -%>
+
+<%= render :partial => 'administrators' -%>
+
+<br />
+
+<% navigation(
+     link_to( _('New administrator'), new_administrator_path) + " | " +
+     link_to( _('Administration'), administration_path )
+            ) 
+%>

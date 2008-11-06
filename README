@@ -8,3 +8,7 @@
  ib3client deligates the authentication action to the ib3(server) via restful communication.
  ib3 on it's side authenticates the user through the local database or a LDAP-Server
  
+== ib3client branches
+
+  2008-11-06 merged with branch ispboard
+  

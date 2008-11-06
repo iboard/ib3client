@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  dns_name: MyString
+  ip: MyString
+  description: MyText
+  user_id: 1
+
+two:
+  dns_name: MyString
+  ip: MyString
+  description: MyText
+  user_id: 1

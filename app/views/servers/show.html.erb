@@ -1,0 +1,26 @@
+<% title( _('Server %s') % @server.dns_name ) %>
+<% navigation(
+   link_to( 'Edit', edit_server_path(@server) ) + " | " +
+   link_to( 'Back', servers_path)
+
+) %>
+<p>
+  <b>Dns name:</b>
+  <%=h @server.dns_name %>
+</p>
+
+<p>
+  <b>Ip:</b>
+  <%=h @server.ip %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @server.description %>
+</p>
+
+<p>
+  <b>Administrator:</b>
+  <%=h @server.administrator.username %>
+</p>
+

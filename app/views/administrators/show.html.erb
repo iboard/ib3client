@@ -17,14 +17,25 @@
   <p><b>Parent Account:</b> <%= link_to(@administrator.parent.username,@administrator.parent) -%></p>
 <% end %>
 
-<p>
-  <% @administrators = @administrator.children %>
-  <%= render :partial => 'administrators' -%>
-</p>
+<% page_block do%>
+  <h2><%= toggle_div_tag(_('Subaccounts'),'subaccounts') -%></h2>
+  <div id='subaccounts' style='display: none;'>
+    <% @administrators = @administrator.children %>
+    <%= render :partial => 'administrators' -%>
+  </div>
+<% end %>
 
 <p>
   <%= link_to(_('New subaccount'), new_administrator_path(:parent_id => @administrator)) -%>
 </p>
+
+<% @servers = @administrator.servers %>
+<% page_block do %>
+  <h2><%= toggle_div_tag(_('Servers'),'server_table') -%></h2>
+  <div id='server_table' style='display: none;'>
+    <%= render :partial => 'servers/servers' -%>
+  </div>
+<% end %>
 
 
 <%- navigation( 

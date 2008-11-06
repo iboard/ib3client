@@ -4,7 +4,7 @@
 <% page_block do %>
   <h2><%= toggle_div_tag(_('Servers'),'server_table') -%></h2>
   <div id='server_table' style='display: none;'>
-     render :partial => 'administrators/servers' 
+    <%= render :partial => 'servers/servers' -%>
   </div>
 <% end %>
 

@@ -1,0 +1,11 @@
+<p>
+  <label for="server_ip">Ip</label><br />
+  <input id="server_ip" name="server[ip]" size="30" type="text" value="<%= @ip_address -%>">
+  <%= link_to_remote( _('fetch from dns-name'), 
+	         :url    => get_ip_url, 
+		        :update => 'server_ip_target',
+			      :with   => "'dns_name=' + encodeURIComponent(server_dns_name.value) ",
+			      :before => "server_ip.value='searching....';",
+			      :error  => "server_ip.value='error';"
+      ) %>
+</p>

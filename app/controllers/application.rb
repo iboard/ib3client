@@ -7,7 +7,10 @@ require 'gettext/rails'
 
 class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
-
+  
+  helper_method :logged_in?, :is_admin?, :get_user, :user_id, :authenticate_admin, :authenticate
+  
+  
   # See ActionController::RequestForgeryProtection for details
   # Uncomment the :secret if you're not using the cookie session store
   protect_from_forgery # :secret => '626c3fce15ce794f11ae3134bd1dea34'
@@ -60,10 +63,11 @@ class ApplicationController < ActionController::Base
     return ( ( session[:user_id] != nil && session[:ip] == request.env['REMOTE_ADDR'] ) )
   end  
   
-
   def crypt_password(plain,salt=nil)
      salt ||= random_string(2)
      "{CRYPT}" + plain.crypt(salt)
   end
-   
+
+ 
+  
 end

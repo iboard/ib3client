@@ -1,0 +1,10 @@
+<% title( _('Edit Server %s') % @server.dns_name ) %>
+<% navigation(
+   link_to( 'Show', @server ) + " | " +
+   link_to( 'Back', servers_path)
+
+) %>
+<% form_for(@server) do |f| %>
+  <%= f.error_messages %>
+  <%= render :partial => 'fields', :locals => { :f => f } -%>
+<% end %>

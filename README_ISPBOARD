@@ -1,0 +1,15 @@
+== ib3client ispboard 
+
+ispboard is a branch on ib3client and supports
+
+=== Models
+
+ * administrator
+ * server
+ 
+=== Controllers
+
+ * administration (The designated entry-page for this application)
+ * administrators
+ * servers
+ 

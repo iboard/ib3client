@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081106095105) do
+ActiveRecord::Schema.define(:version => 20081106164816) do
 
   create_table "administrators", :force => true do |t|
     t.string   "username"
@@ -17,6 +17,15 @@ ActiveRecord::Schema.define(:version => 20081106095105) do
     t.integer  "max_clients"
     t.text     "description"
     t.text     "billing_address"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "servers", :force => true do |t|
+    t.string   "dns_name"
+    t.string   "ip"
+    t.text     "description"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

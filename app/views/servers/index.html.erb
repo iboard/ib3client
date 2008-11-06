@@ -1,0 +1,9 @@
+<%- title(_('Servers for %s') % @administrator.username )-%>
+<% navigation(
+     link_to('New server', new_server_path) + " | " +
+		 link_to('Administration', administration_path )
+   )  %>
+
+<%= render :partial => "servers"%>
+<br />
+

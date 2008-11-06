@@ -1,10 +1,11 @@
 ActionController::Routing::Routes.draw do |map|
+  
   map.resources :servers
 
   map.administration "/administration", :controller => 'administration', :action => 'index'
   map.get_ip         "/get_ip", :controller => 'administration', :action => 'get_ip', :method => :get
 
-  map.resources :administrators
+  map.resources :administrators, :member => { :servers => :get }
 
   map.resources :users
 

@@ -6,7 +6,7 @@
 ) %>
 <p>
   <b>Dns name:</b>
-  <%=h @server.dns_name %>
+  <%= link_to @server.dns_name, "http://#{@server.dns_name}",  :target => "_blank" %>
 </p>
 
 <p>

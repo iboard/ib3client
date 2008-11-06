@@ -32,7 +32,7 @@ class ServersController < ApplicationController
   # GET /servers/new.xml
   def new
     @server = Server.new
-    @server.administrator = Administrator.find_by_username(session[:user_id])
+    @server.administrator = params[:user_id] ? Administrator.find(params[:user_id]) : Administrator.find_by_username(session[:user_id])
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @server }

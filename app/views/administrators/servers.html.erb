@@ -1,0 +1,22 @@
+<table>
+  <tr>
+    <th>Owner</th>
+    <th>Dns name</th>
+    <th>Ip</th>
+    <th>Description</th>
+    <th colspan=3>&nbsp;</th>
+  </tr>
+
+<% for server in @administrator.servers %>
+  <tr>
+    <td><%=link_to server.administrator.fullname, server.administrator %></td>
+    <td><%= link_to server.dns_name, "http://#{server.dns_name}", :target => '_blank' %></td>
+    <td><%=h server.ip %></td>
+    <td><%=h server.description %></td>
+    <td><%= link_to 'Show', server %></td>
+    <td><%= link_to 'Edit', edit_server_path(server) %></td>
+    <td><%= link_to 'Destroy', server, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+<%= link_to _('New Server'), new_server_path(:user_id => @administrator )%>

@@ -1,6 +1,7 @@
-<%- title(_('Servers for %s') % @administrator.username )-%>
+<%- title(_('Servers for %s') % @administrator.fullname + " (#{@administrator.username})" )-%>
 <% navigation(
      link_to('New server', new_server_path) + " | " +
+     link_to( @administrator.fullname, @administrator) + " | " +
 		 link_to('Administration', administration_path )
    )  %>
 

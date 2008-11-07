@@ -8,8 +8,8 @@ class User < ActiveResource::Base
     }
   end
   
-  def self.find_by_username(username)
-    @user ||= User.find(:first, :conditions => ['username = ?', username])
+  def self.find_by_username(search_name)
+    @user ||= User.find(:all).detect { |u| u.username == search_name }
   end
   
 end

@@ -1,6 +1,6 @@
 <p>
   <%= f.label :username %><br />
-  <%= f.select :username, User.not_administrators(@administrator.username111).map { |u|
+  <%= f.select :username, User.not_administrators(@administrator.username).map { |u|
 	       [ "#{[u.sn,u.given_name].join(' ')} (#{u.username})", u.username] 
 	    } %>
 </p>

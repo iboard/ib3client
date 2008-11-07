@@ -1,6 +1,8 @@
 <p>
   <%= f.label :username %><br />
-  <%= f.select :username, User.find(:all, :order => 'sn').map { |u| [ "#{[u.sn,u.given_name].join(' ')} (#{u.username})", u.username] } %>
+  <%= f.select :username, User.not_administrators(@administrator.username111).map { |u|
+	       [ "#{[u.sn,u.given_name].join(' ')} (#{u.username})", u.username] 
+	    } %>
 </p>
 
 <p>

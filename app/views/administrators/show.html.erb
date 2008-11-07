@@ -1,4 +1,4 @@
-<% title(_('Administrator: %s') % h(@administrator.username)) -%>
+<% title(_('Administrator: %s') % @administrator.fullname) -%>
 <p>
   <%=h @administrator.description %>
 </p>
@@ -14,24 +14,20 @@
 </p>
 
 <% if @administrator.parent  %>
-  <p><b>Parent Account:</b> <%= link_to(@administrator.parent.username,@administrator.parent) -%></p>
+  <p><b>Parent Account:</b> <%= link_to(@administrator.parent.fullname,@administrator.parent) -%></p>
 <% end %>
 
 <% page_block do%>
-  <h2><%= toggle_div_tag(_('Subaccounts'),'subaccounts') -%></h2>
+  <h2><%= toggle_div_tag( pluralize( @administrator.children.length,_('Subaccount')),'subaccounts') -%></h2>
   <div id='subaccounts' style='display: none;'>
     <% @administrators = @administrator.children %>
     <%= render :partial => 'administrators' -%>
   </div>
 <% end %>
 
-<p>
-  <%= link_to(_('New subaccount'), new_administrator_path(:parent_id => @administrator)) -%>
-</p>
-
 <% @servers = @administrator.servers %>
 <% page_block do %>
-  <h2><%= toggle_div_tag(_('Servers'),'server_table') -%></h2>
+  <h2><%= toggle_div_tag(pluralize(@servers.length,_('Server')),'server_table') -%></h2>
   <div id='server_table' style='display: none;'>
     <%= render :partial => 'servers/servers' -%>
   </div>

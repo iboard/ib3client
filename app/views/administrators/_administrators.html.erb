@@ -11,12 +11,12 @@
 
 <% for administrator in @administrators %>
   <tr>
-    <td><%= link_to h(administrator.username), administrator %></td>
+    <td><%= link_to h(administrator.fullname), administrator %></td>
     <td><%= link_to administrator.children.length, administrator %> / <%=h administrator.max_clients %></td>
     <td><%= link_to_remote( pluralize(administrator.servers.length,'Server'), 
               :url => servers_administrator_path(administrator), :method => :get,
               :update => "servers_#{administrator.id}",
-              :complete => "Element.show('servers_#{administrator.id}')" ) %></td>
+              :complete => "Element.toggle('servers_#{administrator.id}')" ) %></td>
     <td><%=h administrator.description %></td>
     <td><%=h administrator.billing_address %></td>
     <td><%= link_to 'Edit', edit_administrator_path(administrator) %></td>
@@ -25,3 +25,4 @@
 <% end %>
 
 </table>
+<%= link_to _('New Subaccount'), new_administrator_path(:parent_id => @administrator) -%>

@@ -1,15 +1,23 @@
 <% title _('ispBoard - Administration for user %s') % session[:user_id] %>
 
+<% page_block do %>
+  <h2><%= toggle_div_tag( pluralize((@administrators=Administrator.top_level_administrators).length, _('Administrator')),'admin_table') -%></h2>
+  <div id='admin_table' style='display: none;'>
+    <%= render :partial => 'administrators/administrators' -%>
+  </div>
+<% end %>
+
 
 <% page_block do %>
-  <h2><%= toggle_div_tag(_('Servers'),'server_table') -%></h2>
+  <h2><%= toggle_div_tag( pluralize(@administrator.servers.length, _('Server')),'server_table') -%></h2>
   <div id='server_table' style='display: none;'>
     <%= render :partial => 'servers/servers' -%>
   </div>
 <% end %>
 
 <% page_block do %>
-  <h2><%= toggle_div_tag(_('Subaccounts/Reseller'),'reseller_table') -%></h2>
+  <h2><%= toggle_div_tag( pluralize( @administrator.children.length, _('Subaccount')),'reseller_table') -%></h2>
+  <% @administrators = @administrator.children %>
   <div id='reseller_table' style='display: none;'>
     <%= render :partial => 'administrators/administrators' -%>
   </div>

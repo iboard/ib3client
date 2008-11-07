@@ -9,8 +9,8 @@
 
 <% for server in @servers %>
   <tr>
-    <td><%=h server.administrator.username %></td>
-    <td><%=h server.dns_name %></td>
+    <td><%=link_to server.administrator.fullname, server.administrator %></td>
+    <td><%= link_to server.dns_name, "http://#{server.dns_name}", :target => '_blank' %></td>
     <td><%=h server.ip %></td>
     <td><%=h server.description %></td>
     <td><%= link_to 'Show', server %></td>

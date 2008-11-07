@@ -20,7 +20,6 @@
 </p>
 
 <p>
-  <b>Administrator:</b>
-  <%=h @server.administrator.username %>
+  <b>Administrator:</b> <%= link_to @server.administrator.fullname, @server.administrator -%>
 </p>
 

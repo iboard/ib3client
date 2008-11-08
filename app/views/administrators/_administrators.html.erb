@@ -1,9 +1,10 @@
 <p></p>
-<table>
+<table cellpadding=0 cellspacing=0>
   <tr>
     <th>Username</th>
-    <th>Clients/max clients</th>
+    <th>Clients</th>
     <th>Servers</th>
+    <th>Accounts</th>
     <th>Description</th>
     <th>Billing address</th>
     <th colspan=2>&nbsp;</th>
@@ -13,16 +14,19 @@
   <tr>
     <td><%= link_to h(administrator.fullname), administrator %></td>
     <td><%= link_to administrator.children.length, administrator %> / <%=h administrator.max_clients %></td>
-    <td><%= link_to_remote( pluralize(administrator.servers.length,'Server'), 
-              :url => servers_administrator_path(administrator), :method => :get,
-              :update => "servers_#{administrator.id}",
-              :complete => "Element.toggle('servers_#{administrator.id}')" ) %></td>
+    <td><%= link_to_remote_with_effects(pluralize(administrator.servers.length,'Server'),
+                "servers_#{administrator.id}",
+								servers_administrator_path(administrator)
+              ) %></td>
+		<td><%= link_to_remote_with_effects(pluralize(administrator.accounts.length,'Account'),
+							 "servers_#{administrator.id}",
+							 accounts_administrator_path(administrator)) %></td>
     <td><%=h administrator.description %></td>
     <td><%=h administrator.billing_address %></td>
     <td><%= link_to 'Edit', edit_administrator_path(administrator) %></td>
     <td><%= link_to 'Destroy', administrator, :confirm => 'Are you sure?', :method => :delete %></td>
-    </tr><tr><td  id='<%= "servers_#{administrator.id}"-%>' style='display: none;' colspan=7><div></div></td></tr>
+    </tr><tr><td class='subrow' id='<%= "servers_#{administrator.id}"-%>' style='display: none;' colspan=8></td></tr>
 <% end %>
 
 </table>
-<%= link_to _('New Subaccount'), new_administrator_path(:parent_id => @administrator) -%>
+<%= link_to _('New Sub-Admnistrator'), new_administrator_path(:parent_id => @administrator) -%>

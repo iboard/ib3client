@@ -1,7 +1,10 @@
 class Administrator < ActiveRecord::Base
+  
   validates_presence_of   :username
   validates_uniqueness_of :username
   has_many                :servers, :foreign_key => :user_id
+  has_many                :accounts
+  
   acts_as_tree
   
   named_scope :top_level_administrators, lambda { {:conditions => ['parent_id = 0 or parent_id = ?', nil]} }

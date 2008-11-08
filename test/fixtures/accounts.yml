@@ -1,0 +1,11 @@
+one:
+  username: MyString
+  crypted_password: MyString
+  fullname: MyString
+  description: MyText
+
+two:
+  username: MyString
+  crypted_password: MyString
+  fullname: MyString
+  description: MyText

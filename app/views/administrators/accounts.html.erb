@@ -1,0 +1,23 @@
+[<a href=# onclick="Element.hide('servers_<%= @administrator.id -%>');">X</a>] <b><%= _('%s\'s Accounts') % @administrator.fullname %></b>
+<table cellpadding=0 cellspacing=0>
+  <tr>
+    <th>Administrator</th>
+    <th>Username</th>
+    <th>Fullname</th>
+    <th>Description</th>
+    <th colspan=3>&nbsp;</th>
+  </tr>
+
+<% for account in @accounts %>
+  <tr>
+    <td><%=link_to account.administrator.fullname, account.administrator %></td>
+    <td><%= link_to account.username, account %></td>
+    <td><%=h account.fullname %></td>
+    <td><%=h account.description %></td>
+    <td><%= link_to 'Show', account %></td>
+    <td><%= link_to 'Edit', edit_account_path(account) %></td>
+    <td><%= link_to 'Destroy', account, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+<%= link_to _('New Account'), new_account_path( :administrator_id => @administrator )%>

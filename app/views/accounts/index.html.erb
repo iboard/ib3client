@@ -1,0 +1,23 @@
+<% title "Accounts" %>
+
+<table>
+  <tr>
+    <th>Username</th>
+    <th>Crypted Password</th>
+    <th>Fullname</th>
+    <th>Description</th>
+  </tr>
+  <% for account in @accounts %>
+    <tr>
+      <td><%=h account.username %></td>
+      <td><%=h account.crypted_password %></td>
+      <td><%=h account.fullname %></td>
+      <td><%=h account.description %></td>
+      <td><%= link_to "Show", account %></td>
+      <td><%= link_to "Edit", edit_account_path(account) %></td>
+      <td><%= link_to "Destroy", account, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Account", new_account_path %></p>

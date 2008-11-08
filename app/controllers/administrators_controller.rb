@@ -33,12 +33,23 @@ class AdministratorsController < ApplicationController
   # GET /administrators/1/servers.xml
   def servers
     @administrator = Administrator.find(params[:id])
-
+    @servers = @administrator.servers
     respond_to do |format|
       format.html { render :layout => false }
-      format.xml  { render :xml => @administrator }
+      format.xml  { render :xml => @servers }
     end
   end
+  
+  # GET /administrators/1/accounts
+  # GET /administrators/1/accounts.xml
+  def accounts
+    @administrator = Administrator.find(params[:id])
+    @accounts = @administrator.accounts
+    respond_to do |format|
+      format.html { render :layout => false }
+      format.xml  { render :xml => @accounts }
+    end
+  end  
 
   # GET /administrators/new
   # GET /administrators/new.xml

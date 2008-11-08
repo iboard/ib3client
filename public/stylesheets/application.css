@@ -70,20 +70,34 @@ table {
 	margin: 0px;
 	padding: 0px;
 	background: #ddd;
+	border: 1px solid #888;
 }
 
 td {
 	vertical-align: top;
-	border: 1px solid #888;
+	border-right: 1px solid #888;
+	border-top: 1px solid #888;
 	margin: 0px;
 	padding: 3px;
 	background: white;
 }
 
+td.subrow {
+	padding-bottom: 10px;
+	border-top: none;	
+	border-bottom: 2px solid black;
+	margin-bottom: 10px;
+}
+
 th {
-    border: 1px solid #888;
-    vertical-align: bottom;
+	border-right: 1px solid #888;
+	border-bottom: 1px solid #888;
+	vertical-align: bottom;
 	padding: 5px;
+}
+
+.subtable th {
+	background: red;
 }
 
 .page_block {
@@ -94,4 +108,12 @@ th {
 	padding-bottom: 5px;
 	padding-left: 20px;
 	padding-right: 20px;
+}
+
+.top_right_spinner {
+	padding: 5px;
+	border: 1px solid black;
+	background: #408000;
+	vertical-align: middle;
+	color: white;
 }
